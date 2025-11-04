@@ -1,0 +1,7 @@
+gcc -DBUF_SIZE=100 -m32 -o stack -z execstack -fno-stack-protector stack.c
+sudo chown root:root stack
+sudo chmod 4755 stack
+
+docker build -t ubuntu22-multilib .
+
+docker run --rm -it -v "$(pwd)":/work ubuntu22-multilib bash
